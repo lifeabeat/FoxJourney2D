@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (/*!PauseMenu.instance.isPause &&*/ !stopInput)
+        if (!PauseMenu.instance.isPause && !stopInput)
         {     
             if (knockBackCounter <= 0)
             {

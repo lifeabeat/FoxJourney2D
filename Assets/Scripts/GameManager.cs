@@ -94,26 +94,4 @@ public class GameManager : BaseManager<GameManager>
         isPlaying = true;
         Time.timeScale = 1f;
     }*/
-
-   /* public void RestartGame()
-    {
-        cherries = 0;
-        ChangeScene("Menu");
-        if (UIManager.HasInstance)
-        {
-            UIManager.Instance.ActiveVictoryPanel(false);
-            UIManager.Instance.ActiveGamePanel(false);
-            UIManager.Instance.ActiveLosePanel(false);
-            UIManager.Instance.ActiveMenuPanel(true);
-            // Cach Cu
-            *//*UIManager.Instance.GamePanel.GetComponent<GamePanel>.NumberOfCherries.SetText("0");*//*
-            UIManager.Instance.GamePanel.NumberOfCherries.SetText("0");
-
-        }
-    }*/
-
-    public void ChangeScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
 }
