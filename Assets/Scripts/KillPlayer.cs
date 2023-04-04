@@ -21,6 +21,7 @@ public class KillPlayer : MonoBehaviour
         if (other.tag == "Player")
         {
             HealthController.instance.currentHealth = 0;
+            HealthController.instance.DealDamage();
             UIController.instance.UpdateHealthDisplay();
             LevelManager.instance.RespawnPlayer();
         }
