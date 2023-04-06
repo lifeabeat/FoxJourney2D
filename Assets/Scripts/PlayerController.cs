@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private Transform groundCheckPoint;
     [SerializeField]
     private Rigidbody2D theRB;
+    public Rigidbody2D TheRB => theRB;
     [SerializeField]
     private Animator anim;
     [SerializeField]
@@ -53,10 +54,6 @@ public class PlayerController : MonoBehaviour
         theRB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         theSR = GetComponent<SpriteRenderer>();
-    }
-    void Start()
-    {
-
     }
 
     // Update is called once per frame
