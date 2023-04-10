@@ -21,16 +21,16 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 4519916460551845219, guid: dc65e77ddc29c1d4f935b762e0474024, type: 3}
-    - time: 0.16666667
+    - time: 0.083333336
       value: {fileID: 6048179551794652959, guid: dc65e77ddc29c1d4f935b762e0474024, type: 3}
-    - time: 0.33333334
+    - time: 0.16666667
       value: {fileID: 935960722772261620, guid: dc65e77ddc29c1d4f935b762e0474024, type: 3}
-    - time: 0.5
+    - time: 0.25
       value: {fileID: 2646485277566151736, guid: dc65e77ddc29c1d4f935b762e0474024, type: 3}
-    - time: 0.6666667
+    - time: 0.33333334
       value: {fileID: 4519916460551845219, guid: dc65e77ddc29c1d4f935b762e0474024, type: 3}
     attribute: m_Sprite
-    path: 
+    path: Eagle Sprite
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -41,7 +41,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 535207558
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -58,7 +58,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.68333334
+    m_StopTime: 0.35000002
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

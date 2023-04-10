@@ -12,9 +12,7 @@ public class PlayerController : MonoBehaviour
     // Singleton
     public static PlayerController instance;
 
-    [SerializeField]
-    private Transform pos;
-    public Transform Pos => pos;
+
     [SerializeField]
     private float moveSpeed;
     [SerializeField]
@@ -53,7 +51,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        pos = GetComponent<Transform>();
         theRB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         theSR = GetComponent<SpriteRenderer>();

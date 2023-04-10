@@ -12,80 +12,153 @@ public class FlyingEnemyController : MonoBehaviour
     private float movingSpeed = 2f;
     [SerializeField]
     private GameObject[] Waypoints;
-
-    [SerializeField]
-    private Rigidbody2D theRB;
     [SerializeField]
     public SpriteRenderer theSR;
     [SerializeField]
     private Animator anim;
 
-    public Vector3 Offset;
-    public float timeToAttack;
-    public float time;
+    public float distancetoAttack, chaseSpeed;
+    public float waitAfterAttack;
+    private float attackCounter;
+    private bool hasAttacked;
+
+    private Vector3 attackTarget;
+   
 
     void Start()
     {
-        theRB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         movingRight = true;
     }
 
     void Update()
     {
-        if (Vector2.Distance(transform.position,PlayerController.instance.Pos.position) < 8f)
+        transform.position = Vector3.MoveTowards(transform.position, Waypoints[curWaypointIndex].transform.position, movingSpeed * Time.deltaTime);
+
+        if (attackCounter > 0)
         {
-
-            transform.position = Vector2.MoveTowards(transform.position, PlayerController.instance.Pos.position , movingSpeed * Time.deltaTime);
-
-            InvokeRepeating("Countdown", 1, 2);
-            
-        }
-        else {
-            // vector2.dstance tra ve khoang cach giua 2 vector, tu waypoin cho den moving flatform la bao nhieu, < 0.f1 thi doi index sang vi tri tiep theo
-            if (Vector2.Distance(Waypoints[curWaypointIndex].transform.position, transform.position) < 0.1f)
+            attackCounter -= Time.deltaTime;
+        }   
+        else
+        {
+  
+            if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) > distancetoAttack)
             {
-                curWaypointIndex++;
-                if (curWaypointIndex >= Waypoints.Length)
-                {
-                    curWaypointIndex = 0;
-                }
-            }
+                attackTarget = Vector3.zero;
 
-            // Di chuyen tu vi tri nay sang vi tri kia
-            if (movingRight)
-            {
-                theSR.flipX = false;
-                transform.position = Vector2.MoveTowards(transform.position, Waypoints[curWaypointIndex].transform.position, movingSpeed * Time.deltaTime);
-                if (transform.position.x < Waypoints[curWaypointIndex].transform.position.x)
+                if (Vector3.Distance(Waypoints[curWaypointIndex].transform.position, transform.position) < 0.5f)
                 {
-                    movingRight = false;
+                    curWaypointIndex++;
+                    if (curWaypointIndex >= Waypoints.Length)
+                    {
+                        curWaypointIndex = 0;
+                    }
+                }
+                if (movingRight)
+                {
+                    theSR.flipX = false;
+                    transform.position = Vector3.MoveTowards(transform.position, Waypoints[curWaypointIndex].transform.position, movingSpeed * Time.deltaTime);
+                    if (transform.position.x < Waypoints[curWaypointIndex].transform.position.x)
+                    {
+                        movingRight = false;
+
+                    }
+                }
+                else
+                {
+                    theSR.flipX = true;
+                    transform.position = Vector3.MoveTowards(transform.position, Waypoints[curWaypointIndex].transform.position, movingSpeed * Time.deltaTime);
+                    if (transform.position.x > Waypoints[curWaypointIndex].transform.position.x)
+                    {
+                        movingRight = true;
+
+                    }
 
                 }
+
+
             }
             else
             {
-                theSR.flipX = true;
-                transform.position = Vector2.MoveTowards(transform.position, Waypoints[curWaypointIndex].transform.position, movingSpeed * Time.deltaTime);
-                if (transform.position.x > Waypoints[curWaypointIndex].transform.position.x)
+                // Attack player
+                if (attackTarget == Vector3.zero)
                 {
-                    movingRight = true;
+                    attackTarget = PlayerController.instance.transform.position;
+                }
 
+                transform.position = Vector3.MoveTowards(transform.position, attackTarget, chaseSpeed * Time.deltaTime);
+
+                if (Vector3.Distance(transform.position, attackTarget) <= 0.1f)
+                {
+                    hasAttacked = true;
+                    attackCounter = waitAfterAttack;
+                    attackTarget = Vector3.zero;
                 }
 
             }
         }
         
+        
+        
     }
 
-    void CountDown()
+    /*void Update()
     {
-        time--;
-        if (time < 2)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, PlayerController.instance.Pos.position, movingSpeed * Time.deltaTime);
-        }
-    }
+        
+        
+            if (Vector2.Distance(transform.position, PlayerController.instance.transform.position) > distancetoAttack)
+            {
+                attackTarget = Vector2.zero;
+
+                if (Vector2.Distance(Waypoints[curWaypointIndex].transform.position, transform.position) < 0.1f)
+                {
+                    curWaypointIndex++;
+                    if (curWaypointIndex >= Waypoints.Length)
+                    {
+                        curWaypointIndex = 0;
+                    }
+                }
+                if (movingRight)
+                {
+                    theSR.flipX = false;
+                    transform.position = Vector2.MoveTowards(transform.position, Waypoints[curWaypointIndex].transform.position, movingSpeed * Time.deltaTime);
+                    if (transform.position.x < Waypoints[curWaypointIndex].transform.position.x)
+                    {
+                        movingRight = false;
+
+                    }
+                }
+                else
+                {
+                    theSR.flipX = true;
+                    transform.position = Vector2.MoveTowards(transform.position, Waypoints[curWaypointIndex].transform.position, movingSpeed * Time.deltaTime);
+                    if (transform.position.x > Waypoints[curWaypointIndex].transform.position.x)
+                    {
+                        movingRight = true;
+
+                    }
+
+                }
+
+
+            }
+            else
+            {
+                // Attack player
+                if (attackTarget == Vector2.zero)
+                {
+                    attackTarget = PlayerController.instance.transform.position;
+                }
+
+                transform.position = Vector2.MoveTowards(transform.position, attackTarget, chaseSpeed * Time.deltaTime);
+
+            }
+        
+
+
+
+    }*/
+
 
 }
 
