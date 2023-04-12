@@ -25,7 +25,6 @@ public class Slam : MonoBehaviour
     {
         if (isSmashing)
         {
-            Debug.Log("Smash");
             SmashTarget();
         }
         else
@@ -54,6 +53,10 @@ public class Slam : MonoBehaviour
         {
             isSmashing = false;
             isReturning = true;
+            if (AudioManagerUpdateVer1.HasInstance)
+            {
+                AudioManagerUpdateVer1.Instance.PlaySE(AUDIO.BGM_TRAPSLAM);
+            }
         }
     }
 

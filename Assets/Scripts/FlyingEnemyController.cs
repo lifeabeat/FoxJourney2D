@@ -102,62 +102,7 @@ public class FlyingEnemyController : MonoBehaviour
         
     }
 
-    /*void Update()
-    {
-        
-        
-            if (Vector2.Distance(transform.position, PlayerController.instance.transform.position) > distancetoAttack)
-            {
-                attackTarget = Vector2.zero;
 
-                if (Vector2.Distance(Waypoints[curWaypointIndex].transform.position, transform.position) < 0.1f)
-                {
-                    curWaypointIndex++;
-                    if (curWaypointIndex >= Waypoints.Length)
-                    {
-                        curWaypointIndex = 0;
-                    }
-                }
-                if (movingRight)
-                {
-                    theSR.flipX = false;
-                    transform.position = Vector2.MoveTowards(transform.position, Waypoints[curWaypointIndex].transform.position, movingSpeed * Time.deltaTime);
-                    if (transform.position.x < Waypoints[curWaypointIndex].transform.position.x)
-                    {
-                        movingRight = false;
-
-                    }
-                }
-                else
-                {
-                    theSR.flipX = true;
-                    transform.position = Vector2.MoveTowards(transform.position, Waypoints[curWaypointIndex].transform.position, movingSpeed * Time.deltaTime);
-                    if (transform.position.x > Waypoints[curWaypointIndex].transform.position.x)
-                    {
-                        movingRight = true;
-
-                    }
-
-                }
-
-
-            }
-            else
-            {
-                // Attack player
-                if (attackTarget == Vector2.zero)
-                {
-                    attackTarget = PlayerController.instance.transform.position;
-                }
-
-                transform.position = Vector2.MoveTowards(transform.position, attackTarget, chaseSpeed * Time.deltaTime);
-
-            }
-        
-
-
-
-    }*/
 
 
 }

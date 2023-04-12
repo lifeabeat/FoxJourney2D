@@ -52,33 +52,21 @@ public class HealthController : MonoBehaviour
 
         {
             currentHealth--;
-
-            if (currentHealth <= 0)
-            {
-                currentHealth = 0;
-
-                Instantiate(deathEffect, transform.position, transform.rotation);
-
-                //gameObject.SetActive(false);
-
-                LevelManager.instance.RespawnPlayer();
-            }
-            else
-            {
-                invincibleCounter = invincibleLength;
-                theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, 0.5f);
-                if (AudioManagerUpdateVer1.HasInstance)
-                {
-                    AudioManagerUpdateVer1.Instance.PlaySE(AUDIO.BGM_PLAYERHURT);
-                    AudioManagerUpdateVer1.Instance.PlayRandomSEPitch();
-                }
-                PlayerController.instance.KnockBack();
-                
-            }
-
+            DamageMechanic();
             UIController.instance.UpdateHealthDisplay();
         }    
     }
+
+    public void BossDealDamage()
+    {
+        if (invincibleCounter <= 0)
+        {
+            currentHealth = currentHealth -2;
+            DamageMechanic();
+            UIController.instance.UpdateHealthDisplay();
+        }
+    }
+        
 
     public void HealPlayer()
     {
@@ -91,4 +79,32 @@ public class HealthController : MonoBehaviour
 
         UIController.instance.UpdateHealthDisplay();
     }    
+
+    // Shorten Code for Deal Damage
+    private void DamageMechanic()
+    {
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+
+            Instantiate(deathEffect, transform.position, transform.rotation);
+
+            //gameObject.SetActive(false);
+
+            LevelManager.instance.RespawnPlayer();
+        }
+        else
+        {
+            invincibleCounter = invincibleLength;
+            theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, 0.5f);
+            if (AudioManagerUpdateVer1.HasInstance)
+            {
+                AudioManagerUpdateVer1.Instance.PlaySE(AUDIO.BGM_PLAYERHURT);
+                AudioManagerUpdateVer1.Instance.PlayRandomSEPitch();
+            }
+            PlayerController.instance.KnockBack();
+
+        }
+    }
+        
 }

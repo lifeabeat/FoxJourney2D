@@ -27,7 +27,6 @@ public class Stompbox : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            Debug.Log("HIt");
             collision.transform.parent.gameObject.SetActive(false);
 
             Instantiate(deadEffect, collision.transform.position, collision.transform.rotation);
@@ -45,6 +44,26 @@ public class Stompbox : MonoBehaviour
             {
                 AudioManagerUpdateVer1.Instance.PlaySE(AUDIO.BGM_ENEMYEXPLODE);
             }
-        }    
+        }
+        if (collision.tag == "Box")
+        {
+            collision.transform.gameObject.SetActive(false);
+
+            Instantiate(deadEffect, collision.transform.position, collision.transform.rotation);
+
+            PlayerController.instance.Bounce();
+
+            float dropSelect = Random.Range(0, 100f);
+
+            if (dropSelect <= chanceToDrop)
+            {
+                Instantiate(collectible, collision.transform.position, collision.transform.rotation);
+            }
+
+            if (AudioManagerUpdateVer1.HasInstance)
+            {
+                AudioManagerUpdateVer1.Instance.PlaySE(AUDIO.BGM_ENEMYEXPLODE);
+            }
+        }
     }
 }
