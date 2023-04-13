@@ -45,7 +45,7 @@ public class Stompbox : MonoBehaviour
                 AudioManagerUpdateVer1.Instance.PlaySE(AUDIO.BGM_ENEMYEXPLODE);
             }
         }
-        if (collision.tag == "Box")
+        if (collision.tag == "Box" && PlayerController.instance.transform.position.y > transform.position.y)
         {
             collision.transform.gameObject.SetActive(false);
 

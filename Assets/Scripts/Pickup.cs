@@ -57,6 +57,7 @@ public class Pickup : MonoBehaviour
                     if (AudioManagerUpdateVer1.HasInstance)
                     {
                         AudioManagerUpdateVer1.Instance.PlaySE(AUDIO.BGM_PICKUPHEALTH);
+                        AudioManagerUpdateVer1.Instance.PlayRandomSEPitch();
                     }
                 }
 

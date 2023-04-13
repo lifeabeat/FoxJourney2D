@@ -24,6 +24,11 @@ public class BossBullet : MonoBehaviour
         {
             HealthController.instance.BossDealDamage();
         }
-        Destroy(gameObject);
+
+        if (collision.tag == "Ground")
+        {
+            Destroy(gameObject);
+        }    
+        
     }
 }
