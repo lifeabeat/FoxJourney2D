@@ -128,7 +128,7 @@ public class BossLord : MonoBehaviour
 
                 mineCounter -= Time.deltaTime;
                 
-                if (mineCounter <= 0 && bossHealth <=2)
+                if (mineCounter <= 0 && bossHealth <=3)
                 {
                     mineCounter = timeBetweenMine;
 

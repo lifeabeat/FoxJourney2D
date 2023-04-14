@@ -455,7 +455,7 @@ RectTransform:
   - {fileID: 4097688521574540124}
   - {fileID: 4097688520866427413}
   m_Father: {fileID: 7550813050817697692}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -883,7 +883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa297694aa18d040baa6834adec0f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitToRespawn: 0
+  waitToRespawn: 1.8
   gemCollected: 0
   sceneToLoad: Testing3
 --- !u!1 &7550813050567468880
@@ -1025,7 +1025,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7550813050817697692}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1110,8 +1110,8 @@ RectTransform:
   - {fileID: 7550813051560104854}
   - {fileID: 7550813050567468881}
   - {fileID: 7550813051736030309}
-  - {fileID: 7550813050801640358}
   - {fileID: 7550813050135665360}
+  - {fileID: 7550813050801640358}
   - {fileID: 7550813050411874318}
   m_Father: {fileID: 7550813050470968449}
   m_RootOrder: 1
