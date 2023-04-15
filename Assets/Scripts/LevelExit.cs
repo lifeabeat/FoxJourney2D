@@ -25,6 +25,7 @@ public class LevelExit : MonoBehaviour
                 AudioManagerUpdateVer1.Instance.PlaySE(AUDIO.BGM_COMPLETESCENE);
             }
             LevelManager.instance.EndLevel();
+
         }
     }
 }

@@ -48,6 +48,11 @@ public class PauseMenu : MonoBehaviour
        
         SceneManager.LoadScene(levelSelect);
         Time.timeScale = 1f;
+        if (AudioManagerUpdateVer1.HasInstance)
+        {
+            AudioManagerUpdateVer1.Instance.PlayBGM(AUDIO.BGM_TITLESCREEN, 0.5f);
+        }
+
     }    
 
     public void MainMenu()
@@ -55,6 +60,11 @@ public class PauseMenu : MonoBehaviour
    
         SceneManager.LoadScene(mainMenu);
         Time.timeScale = 1f;
+
+        if (AudioManagerUpdateVer1.HasInstance)
+        {
+            AudioManagerUpdateVer1.Instance.PlayBGM(AUDIO.BGM_TITLESCREEN, 0.5f);
+        }
 
     }
 

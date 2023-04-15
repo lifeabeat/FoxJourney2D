@@ -13513,6 +13513,10 @@ PrefabInstance:
       propertyPath: waitToRespawn
       value: 1.8
       objectReference: {fileID: 0}
+    - target: {fileID: 7550813050817697694, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+      propertyPath: levelSelect
+      value: LevelSelect
+      objectReference: {fileID: 0}
     - target: {fileID: 7550813051814336732, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
       propertyPath: maxHealth
       value: 5

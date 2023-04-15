@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     
-    public string startScene;
+    public string startScene,lvlselectScene;
 
      void Start()
     {
@@ -16,13 +16,12 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(startScene);
-        if (AudioManagerUpdateVer1.HasInstance)
-        {
-            AudioManagerUpdateVer1.Instance.PlayBGM(AUDIO.BGM_MAINLEVEL, 0.5f);
-        }
-    }    
+    }
 
-
+    public void Setting()
+    {
+        SceneManager.LoadScene(lvlselectScene);
+    }
 
     public void QuitGame()
     {

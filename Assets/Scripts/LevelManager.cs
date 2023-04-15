@@ -59,7 +59,16 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         UIController.instance.FadeToBlack();
         yield return new WaitForSeconds((1f / UIController.instance.fadeSpeed) *1.55f);
+
+        // Creating PlayRef to store data
+
+        PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Unlocked", 1);
         
         SceneManager.LoadScene(sceneToLoad);
+         if (AudioManagerUpdateVer1.HasInstance)
+            {
+                AudioManagerUpdateVer1.Instance.PlayBGM(AUDIO.BGM_TITLESCREEN, 0.5f);
+            }
+     
     }
 }

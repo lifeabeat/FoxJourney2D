@@ -514,7 +514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9315a61826697645b4ab8d1ae1b9675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScene: Testing2
+  startScene: LevelSelect
+  lvlselectScene: LevelSelect
 --- !u!1 &465450213
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +892,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5770247507203014797, guid: 5ae30bf62f7e7d54eac8cb41b2a636da, type: 3}
       propertyPath: m_Name
-      value: LevelSelect
+      value: Setting
       objectReference: {fileID: 0}
     - target: {fileID: 5770247507203014834, guid: 5ae30bf62f7e7d54eac8cb41b2a636da, type: 3}
       propertyPath: m_Pivot.x
@@ -981,9 +982,13 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 342950820}
+    - target: {fileID: 5770247507203014835, guid: 5ae30bf62f7e7d54eac8cb41b2a636da, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LevelSelect
+      objectReference: {fileID: 0}
     - target: {fileID: 5770247507756698311, guid: 5ae30bf62f7e7d54eac8cb41b2a636da, type: 3}
       propertyPath: m_text
-      value: Level Select
+      value: Setting
       objectReference: {fileID: 0}
     - target: {fileID: 5770247507756698311, guid: 5ae30bf62f7e7d54eac8cb41b2a636da, type: 3}
       propertyPath: m_fontSize
