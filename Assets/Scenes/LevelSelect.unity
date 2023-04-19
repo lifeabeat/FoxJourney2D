@@ -10426,7 +10426,7 @@ PrefabInstance:
       objectReference: {fileID: 1715631670}
     - target: {fileID: 9097742350744957455, guid: d7d50b0d4a272ca40aeae07f7a189fc1, type: 3}
       propertyPath: gemsCollected
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7d50b0d4a272ca40aeae07f7a189fc1, type: 3}
