@@ -78,7 +78,18 @@ public class HealthController : MonoBehaviour
         }
 
         UIController.instance.UpdateHealthDisplay();
-    }    
+    }
+    public void HealFullPlayer()
+    {
+        currentHealth = maxHealth;
+        if (currentHealth > maxHealth)
+        {
+
+            currentHealth = maxHealth;
+        }
+
+        UIController.instance.UpdateHealthDisplay();
+    }
 
     // Shorten Code for Deal Damage
     private void DamageMechanic()

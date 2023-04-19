@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    public bool isGem, isHealth;
+    public bool isGem, isHealth,isHealthFull;
 
     public GameObject pickupEffect;
 
@@ -62,6 +62,23 @@ public class Pickup : MonoBehaviour
                 }
 
             }
+
+            if(isHealthFull)
+            {
+                if (HealthController.instance.currentHealth != HealthController.instance.maxHealth)
+                {
+                    HealthController.instance.HealFullPlayer();
+
+                    isCollected = true;
+                    Destroy(gameObject);
+                    Instantiate(pickupEffect, transform.position, transform.rotation);
+                    if (AudioManagerUpdateVer1.HasInstance)
+                    {
+                        AudioManagerUpdateVer1.Instance.PlaySE(AUDIO.BGM_PICKUPHEALTH);
+                        AudioManagerUpdateVer1.Instance.PlayRandomSEPitch();
+                    }
+                }
+            }    
         }    
 
         

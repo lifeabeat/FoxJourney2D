@@ -46,14 +46,14 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(waitToRespawn - ( 1f / UIController.instance.fadeSpeed));
         UIController.instance.FadeToBlack();
 
-        yield return new WaitForSeconds(waitToRespawn - (1f / UIController.instance.fadeSpeed) + .2f);
+        yield return new WaitForSeconds(waitToRespawn - (1f / UIController.instance.fadeSpeed) + 1.75f);
         UIController.instance.FadeFromBlack();
 
         PlayerController.instance.gameObject.SetActive(true);
 
         PlayerController.instance.transform.position = CheckPointController.instance.spawnPoint;
 
-        HealthController.instance.currentHealth = HealthController.instance.maxHealth;
+        HealthController.instance.currentHealth = 3;
         UIController.instance.UpdateHealthDisplay();
     }    
 
@@ -71,7 +71,7 @@ public class LevelManager : MonoBehaviour
         UIController.instance.levelCompleted.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         UIController.instance.FadeToBlack();
-        yield return new WaitForSeconds((1f / UIController.instance.fadeSpeed) *2.5f);
+        yield return new WaitForSeconds((1f / UIController.instance.fadeSpeed) *2.25f);
 
         // Creating PlayRef to store data
 
@@ -108,7 +108,7 @@ public class LevelManager : MonoBehaviour
 
          if (AudioManagerUpdateVer1.HasInstance)
             {
-                AudioManagerUpdateVer1.Instance.PlayBGM(AUDIO.BGM_TITLESCREEN, 0.5f);
+                AudioManagerUpdateVer1.Instance.PlayBGM(AUDIO.BGM_TITLESCREEN, 0.25f);
             }
      
     }

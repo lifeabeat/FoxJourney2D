@@ -37,20 +37,20 @@ public class LSManager : MonoBehaviour
         LVLSelectUIController.instance.HideInfo();
 
        // Wait for Fadescreen
-       yield return new WaitForSeconds((1f / LVLSelectUIController.instance.fadeSpeed) + .25f);
+       yield return new WaitForSeconds((1f / LVLSelectUIController.instance.fadeSpeed) + .75f);
 
         SceneManager.LoadScene(thePlayer.currentPoint.levelToLoad);
         if (thePlayer.currentPoint.levelToLoad == "Testing3")
         {
             if (AudioManagerUpdateVer1.HasInstance)
             {
-                AudioManagerUpdateVer1.Instance.PlayBGM(AUDIO.BGM_LEVELSELECT, 0.5f);
+                AudioManagerUpdateVer1.Instance.PlayBGM(AUDIO.BGM_LEVELSELECT, 0.25f);
             }
         } else
         {
             if (AudioManagerUpdateVer1.HasInstance)
             {
-                AudioManagerUpdateVer1.Instance.PlayBGM(AUDIO.BGM_MAINLEVEL, 0.5f);
+                AudioManagerUpdateVer1.Instance.PlayBGM(AUDIO.BGM_MAINLEVEL, 0.25f);
             }
         }
     }
