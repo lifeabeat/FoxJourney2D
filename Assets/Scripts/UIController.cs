@@ -11,6 +11,10 @@ public class UIController : MonoBehaviour
 
     public Image heart1, heart2, heart3;
     public Sprite heartFull, heartEmpty, heartHalf;
+    // add joystick
+    public VariableJoystick variableJoystick;
+    // add jumpbutton
+    public Button jumpButton;
 
     [SerializeField]
     public TextMeshProUGUI gemText;

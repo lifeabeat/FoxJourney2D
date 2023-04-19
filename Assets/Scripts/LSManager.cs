@@ -8,28 +8,36 @@ public class LSManager : MonoBehaviour
 {
     public LVLPlayer thePlayer;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private MovingPoints[] allPoints;
 
-    // Update is called once per frame
-    void Update()
+    public void Start()
     {
-        
-    }
+        allPoints = FindObjectsOfType<MovingPoints>();
 
+        if(PlayerPrefs.HasKey("CurrentLevel"))
+        {
+            foreach(MovingPoints point in allPoints)
+            {
+                if (point.levelToLoad == PlayerPrefs.GetString("CurrentLevel"))
+                {
+                    thePlayer.transform.position = point.transform.position;
+                    thePlayer.currentPoint = point;
+                }    
+            }    
+        }    
+
+    }
     public void LoadLevel()
     {
         StartCoroutine(LoadLevelCo());
     }
     public IEnumerator LoadLevelCo()
     {
-        LVLSelectUIController.instance. FadeToBlack();
+        LVLSelectUIController.instance.FadeToBlack();
+        LVLSelectUIController.instance.HideInfo();
 
-        // Wait for Fadescreen
-        yield return new WaitForSeconds((1f / LVLSelectUIController.instance.fadeSpeed) + .25f);
+       // Wait for Fadescreen
+       yield return new WaitForSeconds((1f / LVLSelectUIController.instance.fadeSpeed) + .25f);
 
         SceneManager.LoadScene(thePlayer.currentPoint.levelToLoad);
         if (thePlayer.currentPoint.levelToLoad == "Testing3")

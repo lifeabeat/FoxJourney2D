@@ -6,13 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    
-    public string startScene,lvlselectScene;
-
-     void Start()
+    public static MainMenu instance;
+    private void Awake()
     {
-        
+        instance = this;
     }
+
+    public GameObject settingPanel;
+    public string startScene;
+
+     
     public void StartGame()
     {
         SceneManager.LoadScene(startScene);
@@ -20,7 +23,7 @@ public class MainMenu : MonoBehaviour
 
     public void Setting()
     {
-        SceneManager.LoadScene(lvlselectScene);
+        settingPanel.SetActive(true);
     }
 
     public void QuitGame()

@@ -44,6 +44,9 @@ public class PlayerController : MonoBehaviour
     // Double Jump
     public bool canDoubleJump;
 
+    //for Jump button
+    private bool isJumping;
+    private bool isNotDoubleJump;
 
     private enum MovementState { Idle, Running, Jumping, Falling }
     private MovementState movementState;
@@ -85,27 +88,40 @@ public class PlayerController : MonoBehaviour
 
     private void Moving()
     {
+        /*theRB.velocity = new Vector2(moveSpeed * UIController.instance.variableJoystick.Direction.x, theRB.velocity.y);*/
         theRB.velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), theRB.velocity.y);
     }
 
     private void Jumping()
     {
+
+
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, .2f, whatisGround);
 
-        if (isGrounded)
+        // && !isjumping 
+        // isNotDoubleJump;
+
+        if (isGrounded && !isJumping)
+            // dang true
         {
-            canDoubleJump = true;
+            
+            canDoubleJump = true; // co the double jup
+            /*isNotDoubleJump = true; */// dang khong double jump
+            
         }
 
+        
         if (Input.GetButtonDown("Jump"))
-        {
-            if (isGrounded)
+        // if (isJumping)
+            {
+            if (isGrounded /*|| isNotDoubleJump*/)
             {
                 theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
                 if (AudioManagerUpdateVer1.HasInstance)
                 {
                     AudioManagerUpdateVer1.Instance.PlaySE(AUDIO.BGM_PLAYERJUMP);
                 }
+               
             }
             else
             {
@@ -117,6 +133,7 @@ public class PlayerController : MonoBehaviour
                         AudioManagerUpdateVer1.Instance.PlaySE(AUDIO.BGM_PLAYERJUMP);
                     }
                     canDoubleJump = false;
+                    
                 }
             }
         }
@@ -165,4 +182,14 @@ public class PlayerController : MonoBehaviour
     {
         theRB.velocity = new Vector2(theRB.velocity.x, bounceForce);
     }    
+
+    public void SetJump(bool value)
+    {
+        isJumping = value;
+    }
+
+    public void SetDoubleJump(bool value)
+    {
+        isNotDoubleJump = !value;
+    }
 }

@@ -22,10 +22,10 @@ public class LevelExit : MonoBehaviour
         {
             if (AudioManagerUpdateVer1.HasInstance)
             {
-                AudioManagerUpdateVer1.Instance.PlaySE(AUDIO.BGM_COMPLETESCENE);
+                AudioManagerUpdateVer1.Instance.PlayBGM(AUDIO.BGM_COMPLETESCENE);
             }
             LevelManager.instance.EndLevel();
-
+    
         }
     }
 }

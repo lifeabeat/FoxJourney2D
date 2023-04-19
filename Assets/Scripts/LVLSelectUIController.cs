@@ -14,7 +14,7 @@ public class LVLSelectUIController : MonoBehaviour
 
     public GameObject levelInfoPanel;
 
-    public TextMeshProUGUI levelName;
+    public TextMeshProUGUI levelName, gemsFound, gemsTarget, bestTime, timeTarget;
 
     // Start is called before the first frame update
     private void Awake()
@@ -63,6 +63,22 @@ public class LVLSelectUIController : MonoBehaviour
     public void ShowInfo(MovingPoints levelInfo)
     {
         levelName.text = levelInfo.levelName;
+        gemsFound.text = "FOUND: " + levelInfo.gemsCollected;
+        gemsTarget.text = "IN LEVEL: " + levelInfo.totalGems;
+
+        timeTarget.text = "TARGET: " + levelInfo.targetTime +"s";
+
+        if(levelInfo.bestsTime == 0)
+        {
+            bestTime.text = "BEST: ---";
+        }   else
+        {
+            bestTime.text = "BEST: " + levelInfo.bestsTime.ToString("F1") + "s";
+
+        }    
+
+
+
 
         levelInfoPanel.SetActive(true);
     }   

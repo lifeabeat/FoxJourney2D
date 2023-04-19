@@ -65,8 +65,5 @@ public class PauseMenu : MonoBehaviour
         {
             AudioManagerUpdateVer1.Instance.PlayBGM(AUDIO.BGM_TITLESCREEN, 0.5f);
         }
-
     }
-
-  
 }
