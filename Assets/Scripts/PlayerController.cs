@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private SpriteRenderer theSR;
 
+    [SerializeField]
+    private ParticleSystem jumpEffect;
+
     // Check Player on the ground
     private bool isGrounded;
     // Knockback
@@ -132,6 +135,7 @@ public class PlayerController : MonoBehaviour
                     {
                         AudioManagerUpdateVer1.Instance.PlaySE(AUDIO.BGM_PLAYERJUMP);
                     }
+                    jumpEffect.Play();
                     canDoubleJump = false;
                     
                 }

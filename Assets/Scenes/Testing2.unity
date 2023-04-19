@@ -1722,6 +1722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGem: 1
   isHealth: 0
+  isHealthFull: 0
   pickupEffect: {fileID: 2500154484765258406, guid: 2d420aaf872b5fc4fad7541fa2abcd96, type: 3}
 --- !u!58 &829382167
 CircleCollider2D:
@@ -2451,6 +2452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGem: 1
   isHealth: 0
+  isHealthFull: 0
   pickupEffect: {fileID: 2500154484765258406, guid: 2d420aaf872b5fc4fad7541fa2abcd96, type: 3}
 --- !u!58 &1254851966
 CircleCollider2D:
@@ -19058,6 +19060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGem: 1
   isHealth: 0
+  isHealthFull: 0
   pickupEffect: {fileID: 2500154484765258406, guid: 2d420aaf872b5fc4fad7541fa2abcd96, type: 3}
 --- !u!58 &1861096477
 CircleCollider2D:
@@ -19261,6 +19264,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!198 &1905118961 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1179474675252756121, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+  m_PrefabInstance: {fileID: 7550813050219955448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1911972439
 GameObject:
   m_ObjectHideFlags: 0
@@ -19953,6 +19961,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PauseMenu, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5120306935083867326, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+      propertyPath: jumpEffect
+      value: 
+      objectReference: {fileID: 1905118961}
+    - target: {fileID: 5120306935083867326, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+      propertyPath: moveEffect
+      value: 
+      objectReference: {fileID: 1905118961}
     - target: {fileID: 7550813050432246458, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
       propertyPath: m_Size.x
       value: 52.867447
@@ -20016,6 +20032,14 @@ PrefabInstance:
     - target: {fileID: 7550813050546851119, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
       propertyPath: sceneToLoad
       value: LevelSelect
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550813050817697693, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550813050817697693, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+      propertyPath: losePanel
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7550813050817697693, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
       propertyPath: variableJoystick

@@ -39701,6 +39701,11 @@ Transform:
   m_Father: {fileID: 954733006}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1109327105 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1179474675252756121, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+  m_PrefabInstance: {fileID: 1896260088}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1119251544
 GameObject:
   m_ObjectHideFlags: 0
@@ -42213,6 +42218,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 15.78
       objectReference: {fileID: 0}
+    - target: {fileID: 5120306935083867326, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+      propertyPath: jumpEffect
+      value: 
+      objectReference: {fileID: 1109327105}
     - target: {fileID: 5507649081235049640, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 66.05
