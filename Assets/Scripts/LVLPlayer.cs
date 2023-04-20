@@ -21,7 +21,7 @@ public class LVLPlayer : MonoBehaviour
         {
             
 
-            if (Input.GetAxisRaw("Horizontal") > .5f)
+            if (Input.GetAxisRaw("Horizontal") > .5f || Input.touchCount == 1)
             {
 
                 if (currentPoint.right != null)
@@ -32,7 +32,7 @@ public class LVLPlayer : MonoBehaviour
                 }
             }
 
-            if (Input.GetAxisRaw("Horizontal") < -.5f)
+            if (Input.GetAxisRaw("Horizontal") < -.5f || Input.touchCount == 1)
             {
                 if (currentPoint.left != null)
                 {
@@ -41,7 +41,7 @@ public class LVLPlayer : MonoBehaviour
                 }
             }
 
-            if (Input.GetAxisRaw("Vertical") > .5f)
+            if (Input.GetAxisRaw("Vertical") > .5f || Input.touchCount == 1)
             {
                 
                 if (currentPoint.up != null)
@@ -51,7 +51,7 @@ public class LVLPlayer : MonoBehaviour
                     
                 }
             }
-            if (Input.GetAxisRaw("Vertical") < -.5f)
+            if (Input.GetAxisRaw("Vertical") < -.5f || Input.touchCount == 1)
             {
                 if (currentPoint.down != null)
                 {
@@ -65,7 +65,7 @@ public class LVLPlayer : MonoBehaviour
             {
                 LVLSelectUIController.instance.ShowInfo(currentPoint);
 
-                if(Input.GetButtonDown("Jump"))
+                if(Input.GetButtonDown("Jump") || Input.touchCount == 1)
                 {
                     levelLoading = true;
                     theManager.LoadLevel();

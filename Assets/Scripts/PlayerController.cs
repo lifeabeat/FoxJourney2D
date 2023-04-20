@@ -91,8 +91,8 @@ public class PlayerController : MonoBehaviour
 
     private void Moving()
     {
-        /*theRB.velocity = new Vector2(moveSpeed * UIController.instance.variableJoystick.Direction.x, theRB.velocity.y);*/
-        theRB.velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), theRB.velocity.y);
+        theRB.velocity = new Vector2(moveSpeed * UIController.instance.variableJoystick.Direction.x, theRB.velocity.y);
+        /*theRB.velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), theRB.velocity.y);*/
     }
 
     private void Jumping()
@@ -105,16 +105,13 @@ public class PlayerController : MonoBehaviour
         // isNotDoubleJump;
 
         if (isGrounded && !isJumping)
-            // dang true
         {
-            
             canDoubleJump = true; // co the double jup
-            /*isNotDoubleJump = true; */// dang khong double jump
-            
         }
 
         
-        if (Input.GetButtonDown("Jump"))
+        /*if (Input.GetButtonDown("Jump"))*/
+        if (isJumping)
         // if (isJumping)
             {
             if (isGrounded /*|| isNotDoubleJump*/)
@@ -128,7 +125,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                if (canDoubleJump)
+                if (canDoubleJump && !isNotDoubleJump)
                 {
                     theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
                     if (AudioManagerUpdateVer1.HasInstance)

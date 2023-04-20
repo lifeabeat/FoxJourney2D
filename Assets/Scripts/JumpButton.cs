@@ -3,43 +3,62 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class JumpButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class JumpButton : MonoBehaviour, IPointerDownHandler, IPointerClickHandler
 {
+    [SerializeField]
     private PlayerController playerController;
-    private int clicked = 0;
-    private float clicktime = 0;
-    private float clickdelay = 0.3f;
-
+    private bool isClicked;
+    private bool isDoubleClicked;
+    private float clickDelay = 0.1f;
     private void Start()
     {
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        //playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
+
+    private void Update()
+    {
+        clickDelay -= Time.deltaTime;
+        //if (playerController == null )
+        //{
+        //    playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        //}    
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
-        clicked++;
-        if (clicked == 1)
+        if (eventData.clickCount >= 3) return;
+        if (clickDelay > 0)
         {
-            clicktime = Time.time;
-            Debug.Log("Clicked");
+            /*isDoubleClicked = true;*/
+            StartCoroutine(Reset());
         }
-    
+        else
+        {
+            clickDelay = 0.2f;
+        }
+    }
 
-        if (clicked > 1 && Time.time - clicktime < clickdelay)
-        {
-            // Double click detected
-            clicked = 0;
-            clicktime = 0;
-            playerController.SetDoubleJump(false);
-            Debug.Log("Clicked");
-        }
-        else if (clicked > 2 || Time.time - clicktime > 1)
-        {
-            clicked = 0;
-        }
-     }
-    public void OnPointerUp(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
-        playerController.SetJump(false);
+        isClicked = true;
+        StartCoroutine(Reset());
+        playerController.SetJump(isClicked);
+    }
 
+    private IEnumerator Reset()
+    {
+        if (isClicked)
+        {
+            yield return new WaitForEndOfFrame();
+            isClicked = false;
+            playerController.SetJump(false);
+        }
+        /*if (isDoubleClicked)
+        {
+            yield return new WaitForEndOfFrame();
+            isDoubleClicked = false;
+            PlayerController playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            playerController.SetDoubleJump(false);
+        }*/
     }
 }
