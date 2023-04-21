@@ -5,6 +5,7 @@ using UnityEngine;
 public class LVLPlayer : MonoBehaviour
 {
     public MovingPoints currentPoint;
+    public Joystick joystick;
 
     public float moveSpeed = 10f;
 
@@ -12,16 +13,57 @@ public class LVLPlayer : MonoBehaviour
 
     public LSManager theManager;
 
+ 
+
     // Update is called once per frame
     void Update()
     {
+
         transform.position = Vector3.MoveTowards(transform.position, currentPoint.transform.position, moveSpeed*Time.deltaTime);
+        
         
         if (Vector3.Distance(transform.position, currentPoint.transform.position ) < .1f && !levelLoading)
         {
             
+            if (joystick.Horizontal >= .3f)
+            {
+                if (currentPoint.right != null)
+                {
 
-            if (Input.GetAxisRaw("Horizontal") > .5f || Input.touchCount == 1)
+                    SetNextPoint(currentPoint.right);
+
+                }
+            }
+            else if ( joystick.Horizontal <= -.3f)
+            {
+                if (currentPoint.left != null)
+                {
+                    SetNextPoint(currentPoint.left);
+
+                }
+            }
+
+            if (joystick.Vertical >= .5f)
+            {
+                if (currentPoint.up != null)
+                {
+
+                    SetNextPoint(currentPoint.up);
+
+                }
+            } 
+            else if (joystick.Vertical <= -.5f)
+            {
+                if (currentPoint.down != null)
+                {
+
+                    SetNextPoint(currentPoint.down);
+
+                }
+            }
+
+
+                if (Input.GetAxisRaw("Horizontal") > .5f )
             {
 
                 if (currentPoint.right != null)
@@ -32,7 +74,7 @@ public class LVLPlayer : MonoBehaviour
                 }
             }
 
-            if (Input.GetAxisRaw("Horizontal") < -.5f || Input.touchCount == 1)
+            if (Input.GetAxisRaw("Horizontal") < -.5f )
             {
                 if (currentPoint.left != null)
                 {
@@ -41,7 +83,7 @@ public class LVLPlayer : MonoBehaviour
                 }
             }
 
-            if (Input.GetAxisRaw("Vertical") > .5f || Input.touchCount == 1)
+            if (Input.GetAxisRaw("Vertical") > .5f )
             {
                 
                 if (currentPoint.up != null)
@@ -51,7 +93,7 @@ public class LVLPlayer : MonoBehaviour
                     
                 }
             }
-            if (Input.GetAxisRaw("Vertical") < -.5f || Input.touchCount == 1)
+            if (Input.GetAxisRaw("Vertical") < -.5f)
             {
                 if (currentPoint.down != null)
                 {
@@ -65,7 +107,7 @@ public class LVLPlayer : MonoBehaviour
             {
                 LVLSelectUIController.instance.ShowInfo(currentPoint);
 
-                if(Input.GetButtonDown("Jump") || Input.touchCount == 1)
+                if(Input.GetButtonDown("Jump") || Input.touchCount == 2)
                 {
                     levelLoading = true;
                     theManager.LoadLevel();
@@ -94,4 +136,13 @@ public class LVLPlayer : MonoBehaviour
             AudioManagerUpdateVer1.Instance.PlaySE(AUDIO.BGM_MAPMOVEMENT);
         }
     }
+
+    public void MovementAndroid()
+    {
+        if (Input.touchCount == 1)
+        {
+            transform.position = Vector3.MoveTowards(Input.GetTouch(0).position, currentPoint.transform.position, moveSpeed * Time.deltaTime);
+            MovementSE();
+        }    
+    }    
 }

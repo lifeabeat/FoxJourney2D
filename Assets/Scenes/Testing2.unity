@@ -19582,6 +19582,22 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 7550813050219955449}
+    - target: {fileID: 3774847405298650176, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4625
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774847405298650176, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.4375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774847406602030272, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2625
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774847406942060012, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2375
+      objectReference: {fileID: 0}
     - target: {fileID: 4097688521574540125, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -19668,7 +19684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7550813050801640357, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7550813050817697693, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
       propertyPath: timeText
