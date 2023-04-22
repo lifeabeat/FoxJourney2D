@@ -18,16 +18,29 @@ public class UIController : MonoBehaviour
 
     [SerializeField]
     public TextMeshProUGUI gemText;
+    [SerializeField]
+    private TextMeshProUGUI timeText;
+    private float timeRemaining;
+    private bool timerIsRunning = false;
 
     public Image fadeScreen;
     public float fadeSpeed;
     public bool shouldFadeToBlack, shouldFadeFromBlack;
 
     public GameObject levelCompleted;
+    public GameObject LosePanel;
 
     private void Awake()
     {
         instance = this;
+        SetTimeRemain(5);
+    }
+
+    private void OnEnable()
+    {
+        SetTimeRemain(5);
+        timerIsRunning = true;
+        
     }
 
 
@@ -56,6 +69,25 @@ public class UIController : MonoBehaviour
             if (fadeScreen.color.a == 0f)
             {
                 shouldFadeToBlack = false;
+            }
+        }
+
+        if (timerIsRunning)
+        {
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+                DisplayTime(timeRemaining);
+            }
+            else
+            {
+                Debug.Log("Time has run out!");
+                
+                timeRemaining = 0;
+                timerIsRunning = false;
+                Time.timeScale = 0f;
+                LosePanel.SetActive(true);
+
             }
         }
     }
@@ -135,5 +167,17 @@ public class UIController : MonoBehaviour
         shouldFadeFromBlack = true;
     }
 
-    
+    void DisplayTime(float timeToDisplay)
+    {
+        timeToDisplay += 1;
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    public void SetTimeRemain(float v)
+    {
+        timeRemaining = v;
+    }
+
 }

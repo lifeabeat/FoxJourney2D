@@ -9,11 +9,7 @@ public class PauseMenu : MonoBehaviour
     public string levelSelect, mainMenu;
     public bool isPause;
     public GameObject pauseScreen;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
     private void Awake()
     {
         instance = this;
@@ -21,26 +17,31 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) || Input.touchCount == 2)
         {
+            
             PauseUnpause();
         }    
     }
 
     public void PauseUnpause()
     {
-        if(isPause)
+        if (isPause)
         {
             isPause = false;
+            pauseScreen.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }    
+
+    public void Resume()
+    {
+        if (!isPause)
+        {
+            isPause = true;
             pauseScreen.SetActive(false);
             Time.timeScale = 1f;
         }
-        else
-        {
-            isPause = true;
-            pauseScreen.SetActive(true);
-            Time.timeScale = 0f;
-        }    
     }    
 
     public void LevelSelect()

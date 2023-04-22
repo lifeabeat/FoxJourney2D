@@ -1232,6 +1232,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &787704272 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5369106285497677941, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+  m_PrefabInstance: {fileID: 7550813050219955448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &817656103
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2371,6 +2382,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4356685056476300620, guid: c491ecce3e3a5be40b4e98798a778129, type: 3}
   m_PrefabInstance: {fileID: 1369345362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1412462258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8044308054847644796, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+  m_PrefabInstance: {fileID: 7550813050219955448}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1465720417
 PrefabInstance:
@@ -19265,6 +19281,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2056609922 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4428365484654630721, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+  m_PrefabInstance: {fileID: 7550813050219955448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2061377142 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7550813050817697694, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
@@ -19598,6 +19625,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1.2375
       objectReference: {fileID: 0}
+    - target: {fileID: 4097688520839260602, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
     - target: {fileID: 4097688521574540125, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -19618,6 +19649,10 @@ PrefabInstance:
       propertyPath: moveEffect
       value: 
       objectReference: {fileID: 1905118961}
+    - target: {fileID: 5369106285497677941, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+      propertyPath: m_text
+      value: Time
+      objectReference: {fileID: 0}
     - target: {fileID: 7550813050432246458, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
       propertyPath: m_Size.x
       value: 52.867447
@@ -19689,11 +19724,19 @@ PrefabInstance:
     - target: {fileID: 7550813050817697693, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
       propertyPath: timeText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 787704272}
+    - target: {fileID: 7550813050817697693, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+      propertyPath: LosePanel
+      value: 
+      objectReference: {fileID: 1412462258}
     - target: {fileID: 7550813050817697693, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
       propertyPath: losePanel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7550813050817697693, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
+      propertyPath: jumpButton
+      value: 
+      objectReference: {fileID: 2056609922}
     - target: {fileID: 7550813050817697693, guid: c7cff6e5ff53fad4f935bee324c129a4, type: 3}
       propertyPath: variableJoystick
       value: 

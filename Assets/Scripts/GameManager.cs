@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : BaseManager<GameManager>
 {
     // Old
-    public string startScene;
+    /*public string startScene;
     public string levelSelect, mainMenu;
     public bool isPause;
 
@@ -31,7 +31,7 @@ public class GameManager : BaseManager<GameManager>
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.touchCount == 2)
         {
             PauseGame();
         }
@@ -79,19 +79,6 @@ public class GameManager : BaseManager<GameManager>
         SceneManager.LoadScene(startScene);
         Time.timeScale = 1f;
     }
-
-    /*public void PauseGame()
-    {
-        if (isPlaying)
-        {
-            isPlaying = false;
-            Time.timeScale = 0f;
-        }
-
-    }*/
-    /*public void ResumeGame()
-    {
-        isPlaying = true;
-        Time.timeScale = 1f;
-    }*/
+*/
+    
 }
