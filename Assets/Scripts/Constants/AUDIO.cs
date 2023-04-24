@@ -17,6 +17,7 @@
 	 public const string BGM_ENEMYEXPLODE = "Enemy Explode";
 	 public const string BGM_LEVELSELECTED = "Level Selected";
 	 public const string BGM_COMPLETESCENE = "Level Victory";
+	 public const string BGM_LOSEPANEL = "LosePanel";
 	 public const string BGM_MAPMOVEMENT = "Map Movement";
 	 public const string BGM_PICKUPGEM = "Pickup Gem";
 	 public const string BGM_PICKUPHEALTH = "Pickup Health";

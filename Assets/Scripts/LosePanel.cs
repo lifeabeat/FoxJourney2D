@@ -8,9 +8,12 @@ public class LosePanel : MonoBehaviour
     
     public string sceneToLoad;
     public string scenePlaying;
+
+     
     public void OnClickedMenuButton()
     {
         Time.timeScale = 1f;
+        UIController.instance.FadeFromBlack();
         SceneManager.LoadScene(sceneToLoad);
 
         if (AudioManagerUpdateVer1.HasInstance)

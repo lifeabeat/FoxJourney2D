@@ -33,12 +33,12 @@ public class UIController : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        SetTimeRemain(5);
+        SetTimeRemain(180);
     }
 
     private void OnEnable()
     {
-        SetTimeRemain(5);
+        SetTimeRemain(180);
         timerIsRunning = true;
         
     }
@@ -81,13 +81,14 @@ public class UIController : MonoBehaviour
             }
             else
             {
-                Debug.Log("Time has run out!");
                 
                 timeRemaining = 0;
                 timerIsRunning = false;
+                
                 Time.timeScale = 0f;
                 LosePanel.SetActive(true);
-
+                
+                
             }
         }
     }

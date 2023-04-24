@@ -91,8 +91,8 @@ public class PlayerController : MonoBehaviour
 
     private void Moving()
     {
-        theRB.velocity = new Vector2(moveSpeed * UIController.instance.variableJoystick.Direction.x, theRB.velocity.y);
-        /*theRB.velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), theRB.velocity.y);*/
+        /*theRB.velocity = new Vector2(moveSpeed * UIController.instance.variableJoystick.Direction.x, theRB.velocity.y);*/
+        theRB.velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), theRB.velocity.y);
     }
 
     private void Jumping()
@@ -102,19 +102,18 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, .2f, whatisGround);
 
         // && !isjumping 
-        // isNotDoubleJump;
+        // isJumping;
 
-        if (isGrounded && !isJumping)
+        if (isGrounded /*&& !isJumping*/)
         {
-            canDoubleJump = true; // co the double jup
+            canDoubleJump = true; 
         }
 
         
-        /*if (Input.GetButtonDown("Jump"))*/
-        if (isJumping)
-        // if (isJumping)
-            {
-            if (isGrounded /*|| isNotDoubleJump*/)
+        if (Input.GetButtonDown("Jump"))
+        /*if (isJumping)*/
+        {
+            if (isGrounded )
             {
                 theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
                 if (AudioManagerUpdateVer1.HasInstance)
@@ -125,7 +124,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                if (canDoubleJump && !isNotDoubleJump)
+                if (canDoubleJump /*&& !isNotDoubleJump*/)
                 {
                     theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
                     if (AudioManagerUpdateVer1.HasInstance)
