@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         /*if (isJumping)*/
         {
-            if (isGrounded )
+            if (isGrounded)
             {
                 theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
                 if (AudioManagerUpdateVer1.HasInstance)

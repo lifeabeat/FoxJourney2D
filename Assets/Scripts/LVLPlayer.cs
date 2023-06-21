@@ -24,6 +24,7 @@ public class LVLPlayer : MonoBehaviour
         
         if (Vector3.Distance(transform.position, currentPoint.transform.position ) < .1f && !levelLoading)
         {
+            // Joystick
             
             if (joystick.Horizontal >= .3f)
             {
@@ -62,6 +63,7 @@ public class LVLPlayer : MonoBehaviour
                 }
             }
 
+            // Keyboard
 
                 if (Input.GetAxisRaw("Horizontal") > .5f )
             {
@@ -137,12 +139,5 @@ public class LVLPlayer : MonoBehaviour
         }
     }
 
-    public void MovementAndroid()
-    {
-        if (Input.touchCount == 1)
-        {
-            transform.position = Vector3.MoveTowards(Input.GetTouch(0).position, currentPoint.transform.position, moveSpeed * Time.deltaTime);
-            MovementSE();
-        }    
-    }    
+    
 }

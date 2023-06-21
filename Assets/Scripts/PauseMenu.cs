@@ -14,14 +14,10 @@ public class PauseMenu : MonoBehaviour
     {
         instance = this;
     }
-    // Update is called once per frame
-    private void Start()
-    {
-        
-    }
+  
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) /*|| Input.touchCount == 2*/)
+        if(Input.GetKeyDown(KeyCode.Escape) || Input.touchCount == 3)
         {
             pauseScreen.SetActive(true);
             isPause = true;

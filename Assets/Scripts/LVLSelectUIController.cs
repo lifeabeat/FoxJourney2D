@@ -77,9 +77,6 @@ public class LVLSelectUIController : MonoBehaviour
 
         }    
 
-
-
-
         levelInfoPanel.SetActive(true);
     }   
     

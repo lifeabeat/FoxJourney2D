@@ -109,6 +109,7 @@ public class LevelManager : MonoBehaviour
          if (AudioManagerUpdateVer1.HasInstance)
             {
                 AudioManagerUpdateVer1.Instance.PlayBGM(AUDIO.BGM_TITLESCREEN, 0.25f);
+               
             }
      
     }
